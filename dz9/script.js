@@ -3,7 +3,7 @@ let arr = [16,-37,54,-4,72,-56,47,4, -16,25,-37,46,4,-51,27,-63,4,-54,76,-4,12,-
 //1
 let positives = arr.filter(el => el > 0);
 let sumOfPositives = positives.reduce((a, b) => a + b);
-console.log('1:', positives.length, sumOfPositives);
+console.log('1:', sumOfPositives, positives.length);
 
 //2
 let min = arr.reduce((a, b) => Math.min(a, b));
