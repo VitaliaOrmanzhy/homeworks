@@ -41,5 +41,5 @@ console.log('9:', productOfPositives);
 
 //10
 arr = arr.filter((el) => el === arr.reduce((a, b) => Math.max(a, b)));
-console.log(arr);
+console.log('10:', arr);
 
