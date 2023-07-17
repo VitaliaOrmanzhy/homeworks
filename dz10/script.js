@@ -4,10 +4,12 @@ function toShowTheResult(message, res) {
     container.innerHTML += `<p>${message}: [${res}]</p>`;
 }
 
-const length = +prompt('Введіть довжину массиву');
+let length;
+do {
+    length = +prompt('Введіть довжину массиву');
+} while (isNaN(length))
 
 let arr = [];
-
 for (let i = 1; i <= length; i++) {
     arr.push(prompt('Введіть елемент массиву'));
 }
