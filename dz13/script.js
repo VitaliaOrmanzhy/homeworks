@@ -60,7 +60,6 @@ function findTheBalance(elem) {
 }
 
 let theBalanceHigherThan2000 = users.filter(el => findTheBalance(el) > 2000);
-console.log(theBalanceHigherThan2000);
 
 let numbers = theBalanceHigherThan2000.reduce((total, el) => {
     total.push(`${el.name} : ${el.phone}`);
