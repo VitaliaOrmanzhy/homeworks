@@ -56,6 +56,6 @@ let users = [
 ]
 
 
-let TheBalanceHigherThan2000 = users.sort(el => +el.balance.replace('$', '').replace(',', '') > 2000);
-console.log(+users[3].balance.replace('$', '').replace(',', '') > 2000); // false
+let TheBalanceHigherThan2000 = users.sort(el => el.balance.replace('$', '').replace(',', '') > 2000);
+console.log(users[3].balance.replace('$', '').replace(',', '') > 2000); // false
 console.log(TheBalanceHigherThan2000);
