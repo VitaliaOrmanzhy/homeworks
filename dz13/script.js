@@ -55,7 +55,22 @@ let users = [
     }
 ]
 
+function findTheBalance(elem) {
+    return +elem.balance.replace('$', '').replace(',', '');
+}
 
-let TheBalanceHigherThan2000 = users.sort(el => el.balance.replace('$', '').replace(',', '') > 2000);
-console.log(users[3].balance.replace('$', '').replace(',', '') > 2000); // false
-console.log(TheBalanceHigherThan2000);
+let theBalanceHigherThan2000 = users.filter(el => findTheBalance(el) > 2000);
+console.log(theBalanceHigherThan2000);
+
+let numbers = theBalanceHigherThan2000.reduce((total, el) => {
+    total.push(`${el.name} : ${el.phone}`);
+    return total;
+}, [])
+
+console.log(numbers);
+
+let sum = users.reduce((total, el) => {
+    return Math.round(total + findTheBalance(el));
+}, 0);
+
+console.log(sum);
