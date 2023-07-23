@@ -69,7 +69,7 @@ let numbers = theBalanceHigherThan2000.reduce((total, el) => {
 console.log(numbers);
 
 let sum = users.reduce((total, el) => {
-    return Math.round(total + findTheBalance(el));
+    return total + findTheBalance(el);
 }, 0);
 
-console.log(sum);
+console.log(sum.toFixed(2));
