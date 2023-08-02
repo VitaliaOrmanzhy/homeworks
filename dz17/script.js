@@ -1,6 +1,6 @@
 function simplifyTheNumber(str) {
-    if (/\+?\d{3}[\s-]\d{2}[\s-]\d{3}([\s-]\d{2}){2}/.test(str)) {
-        return str.replace(/\+?\d{3}[\s-]/, '0').split(/[\s-]/).join('');
+    if (/\+?\d{3}[ -]\d{2}[ -]\d{3}([ -]\d{2}){2}/.test(str)) {
+        return str.replace(/\+?\d{3}[ -]/, '0').split(/[ -]/).join('');
     } else {
         return null;
     }
