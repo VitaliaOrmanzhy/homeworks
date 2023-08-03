@@ -20,10 +20,10 @@ function findDates(str) {
     for (el of findedDates) {
         if (monthes[el[2]]) {
             datesObjects.push({
-                day : el[3],
-                month : el[2],
+                day : +el[3],
+                month : +el[2],
                 monthName : monthes[el[2]],
-                year : el[1]
+                year : +el[1]
             })
         }  
     }
