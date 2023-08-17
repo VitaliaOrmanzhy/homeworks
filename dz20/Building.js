@@ -4,9 +4,9 @@ class Building {
         this.maxAmountOfFlats = maxAmountOfFlats;
     }
 
-    addFlat(flats) {
+    addFlat(flat) {
         if (this.maxAmountOfFlats > this.flats.length) {
-            this.flats.push(...flats);
+            this.flats.push(flat);
         }
     }
 }
