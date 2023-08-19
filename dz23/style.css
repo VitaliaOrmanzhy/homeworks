@@ -1,0 +1,9 @@
+.out {
+    margin: 20px auto;
+    max-width: 400px;
+    overflow: hidden;
+}
+
+.image {
+    width: 100%;
+}
