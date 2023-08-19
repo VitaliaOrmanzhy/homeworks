@@ -17,7 +17,6 @@ const building = new Building(4);
 
 building.addFlat(flat1);
 building.addFlat(flat1);
-building.addFlat(flat1);
-building.addFlat(flat1);
-building.addFlat(flat1);
+building.addFlats([flat1, flat2, flat3, flat1, flat2, flat3]);
+
 console.log(building);
