@@ -1,3 +1,4 @@
+
 class Hamburger extends Info {
     constructor(size, filling) {
         super();
