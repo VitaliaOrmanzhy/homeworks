@@ -4,7 +4,7 @@ function renderImages() {
     let i = 1;
     renderImages = function() {
         for (i; i <= 6; i++) {
-            sliderImagesContainer.innerHTML += `<img src="images/${i}.jpg"/>`;
+            sliderImagesContainer.innerHTML += `<img class="slider__image" src="images/${i}.jpg"/>`;
         }
     }
     renderImages();
