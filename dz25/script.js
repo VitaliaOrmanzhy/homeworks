@@ -24,12 +24,15 @@ function nextFunc() {
     //к-сть картинок
     const imagesLength = document.querySelectorAll('.slider__image').length;
 
-    if (px != (imagesLength - 1) * 800 - 800) {
-        sliderImagesContainer.style.right = `${px + 800}px`;
-        px += 800;
+    //ширина блоку з картинками
+    const clientWidth = sliderImagesContainer.clientWidth;
+
+    if (px != (imagesLength - 1) * clientWidth - clientWidth) {
+        sliderImagesContainer.style.right = `${px + clientWidth}px`;
+        px += clientWidth;
     }
     
-    if (px == (imagesLength - 1) * 800 - 800) {
+    if (px == (imagesLength - 1) * clientWidth - clientWidth) {
         nextBtn.style.display = 'none';
     }
     // if (px == ((document.querySelectorAll('.slider__image').length - 1) * 800) - 800)
@@ -43,9 +46,12 @@ function prevFunc() {
     //к-сть картинок
     const imagesLength = document.querySelectorAll('.slider__image').length;
 
+    //ширина блоку з картинками
+    const clientWidth = sliderImagesContainer.clientWidth;
+
     if (px != 0) {
-        sliderImagesContainer.style.right = `${px - 800}px`;
-        px -= 800;
+        sliderImagesContainer.style.right = `${px - clientWidth}px`;
+        px -= clientWidth;
     }
     
     if (px == 0) {
