@@ -1,0 +1,15 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+table {
+    border: 1px solid #000000;
+    border-collapse: collapse;
+}
+
+td, th{
+    padding: 10px;
+    text-align: center;
+    border: solid 1px #000000;
+}
