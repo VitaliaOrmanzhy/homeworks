@@ -1,4 +1,4 @@
-const container = document.querySelector('.container');
+const btnContainer = document.querySelector('.btn-container');
 
 function addVariant() {
     let count = 1;
@@ -12,7 +12,7 @@ function addVariant() {
             <p class="variant__count">0</p>
         `
 
-        container.append(newVariant);
+        btnContainer.append(newVariant);
         count++;
     }
 
@@ -22,10 +22,13 @@ function addVariant() {
 }
 
 
-container.addEventListener('click', function(e) {
+btnContainer.addEventListener('click', function(e) {
     const elem = e.target;
 
-    const variantCount = elem.querySelector('.variant__count') || elem.parentElement.querySelector('.variant__count');
+    console.log(elem.parentElement.querySelector('.variant__count'));
+    console.log(elem.querySelector('.variant__count'));
+
+    const variantCount = elem.parentElement.querySelector('.variant__count');
     variantCount.textContent++;
 })
 
