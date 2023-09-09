@@ -4,15 +4,13 @@ function addVariant() {
     let count = 1;
 
     addVariant = function() {
-        const newVariant = document.createElement('div');
+        const newVariant = document.createElement('button');
 
         newVariant.classList.add('variant');
         newVariant.innerHTML = `
-        <label class="variant__label">
             <img src="img/${count}.png" alt="" class="variant__img">
-            <input type="radio" name="radio" class="checkbox"/>
             <p class="variant__count">0</p>
-        </label>`
+        `
 
         container.append(newVariant);
         count++;
@@ -24,22 +22,10 @@ function addVariant() {
 }
 
 
-function removeVote() {
-    const votedElem = document.querySelector('.voted');
-
-    if (votedElem) {
-        votedElem.textContent--;
-        votedElem.classList.remove('voted');
-    }
-}
-
-
-container.addEventListener('change', function(e) {
-    removeVote();
+container.addEventListener('click', function(e) {
     const elem = e.target;
 
-    const variantCount = elem.parentElement.querySelector('.variant__count');
-    variantCount.classList.add('voted');
+    const variantCount = elem.querySelector('.variant__count') || elem.parentElement.querySelector('.variant__count');
     variantCount.textContent++;
 })
 
