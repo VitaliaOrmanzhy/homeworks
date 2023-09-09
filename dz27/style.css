@@ -23,17 +23,12 @@ img {
 }
 
 .variant {
+    border: none;
+    background: transparent;
     flex-basis: 30px;
-}
-
-.variant__label {
     height: 60px;
     display: flex;
     flex-direction: column;
     align-items:center;
     justify-content: space-between;
-}
-
-.checkbox {
-    appearance: none;
 }
