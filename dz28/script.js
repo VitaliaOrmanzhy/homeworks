@@ -22,7 +22,9 @@ categoriesContainer.addEventListener('click', (e) => {
 
 
 productsContainer.addEventListener('click', function(e) {
-    const idOfChoosenProduct = e.target.closest('[data-id]').dataset.id;
+    const choosenProduct = e.target.closest('[data-id]');
+    const idOfChoosenProduct = choosenProduct.closest('[data-id]').dataset.id;
+
     productInfo.render(idOfChoosenProduct);
     buyBtn.render();
 
