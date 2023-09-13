@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    padding: 0 20px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.input__container {
+    position: relative;
+}
+
+.form__input {
+    border: none;
+    box-shadow: 3px 4px 22px 0px rgba(0, 56, 255, 0.18);
+    border-radius: 10px;
+    padding: 14px 40px 10px 20px;
+}
+
+.checkboxes__container, .radiobtns__container {
+    display: flex;
+    gap: 20px;
+}
+
+.form__label {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.form__input:focus {
+    outline: none;
+}
+
+.button__container {
+    margin-top: 10px;
+}
+
+.button {
+    background: transparent;
+    border: 1px solid #000;
+    border-radius: 8px;
+    padding: 5px 10px;
+}
+
+.button:hover {
+    background: rgba(0, 56, 255, 0.18);
+}
+
+.table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+}
+
+
+td, th {
+    padding: 10px;
+    border: solid 1px #ccc;
+}
+
+.warning {
+    font-family: sans-serif;
+    font-size: 11px;
+    color: rgba(255, 0, 0, 0.64);
+    position: absolute;
+    bottom: -15px;
+    z-index: 1;
+}

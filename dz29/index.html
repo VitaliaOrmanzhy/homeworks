@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form__container">
+            <form action="" class="form" required>
+                <div class="input__container" data-name="Ім'я, Прізвище">
+                    <input type="text" name="name" class="form__input" placeholder="Ім'я, Прізвище">
+                </div>
+                <div class="input__container" data-name="Дата народження">
+                    <input type="text" name="date" class="form__input" placeholder="Дата народження (dd.mm.yyyy)">
+                </div>
+                <div class="input__container radiobtns__container" data-name="Стать">
+                    <label for="genderMale" class="form__label"><input type="radio" name="gender" value="М" class="form__input radiobutton" id="genderMale" checked="true">М</label>
+                    <label for="genderFemale" class="form__label"><input type="radio" name="gender" value="Ж" class="form__input radiobutton" id="genderFemale">Ж</label>
+                </div>
+                <div class="input__container" data-name="Місто">
+                    <select name="city" id="city" class="form__input">
+                        <option selected>Київ</option>
+                        <option>Одеса</option>
+                        <option>Львів</option>
+                    </select>
+                </div>
+                <div class="input__container" data-name="Адреса">
+                    <textarea name="" id="" class="form__input" data-max-length="40" data-min-length="5"></textarea>
+                </div>
+                <div class="input__container checkboxes__container" data-name="Мова">
+                    <label for="ua" class="form__label"><input type="checkbox" class="form__input checkbox" value="Українська" id="ua">Українська</label>
+                    <label for="en" class="form__label"><input type="checkbox" class="form__input checkbox" value="Англійська" id="en">Англійська</label>
+                </div>
+                <div class="button__container">
+                    <button type="submit" class="form__button button">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="createError.js"></script>
+    <script src="removeError.js"></script>
+    <script src="validation.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
