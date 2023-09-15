@@ -1,9 +1,8 @@
 const formContainer = document.querySelector('.form__container');
-const submitBtn = document.querySelector('.form__button');
 const form = document.querySelector('.form');
 
 function getObjOfInputsVal(inputContainersArr) {
-    const obj = {}
+    const obj = {};
 
     inputContainersArr.map((item) => {
         const inputs = item.querySelectorAll('.form__input');
@@ -26,8 +25,8 @@ function getObjOfInputsVal(inputContainersArr) {
 }
 
 function createFormTable(form) {
-    const formElements = form.querySelectorAll('.input__container');
-    const inputsValObj = getObjOfInputsVal([...formElements]);
+    const inputContainers = form.querySelectorAll('.input__container');
+    const inputsValObj = getObjOfInputsVal([...inputContainers]);
 
     const table = document.createElement('table');
     table.classList.add('table');
@@ -35,7 +34,7 @@ function createFormTable(form) {
     for (let i = 0; i < 2; i++) {
         const tr = document.createElement('tr');
 
-        for (let j = 0; j < formElements.length; j++) {
+        for (let j = 0; j < inputContainers.length; j++) {
 
             if (i == 0) {
                 const th = document.createElement('th');
@@ -54,10 +53,10 @@ function createFormTable(form) {
     return table;
 }
 
-submitBtn.addEventListener('click', (e) => {
+form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    if (validate(form)) {
+    if (form.checkValidity()) {
         formContainer.innerHTML = '';
         formContainer.append(createFormTable(form));
     }

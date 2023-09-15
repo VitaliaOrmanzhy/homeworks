@@ -33,6 +33,16 @@ body {
     padding: 14px 40px 10px 20px;
 }
 
+.form__input:invalid {
+    border: 1px solid red;
+} 
+
+.form__input:not(:focus):invalid {
+    border: 1px solid transparent;
+}   
+
+
+
 .checkboxes__container, .radiobtns__container {
     display: flex;
     gap: 20px;

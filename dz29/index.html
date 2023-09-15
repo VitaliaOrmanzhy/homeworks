@@ -11,28 +11,28 @@
         <div class="form__container">
             <form action="" class="form" required>
                 <div class="input__container" data-name="Ім'я, Прізвище">
-                    <input type="text" name="name" class="form__input" placeholder="Ім'я, Прізвище">
+                    <input type="text" name="name" class="form__input" placeholder="Ім'я, Прізвище" pattern="(^[^a-zA-Z]+ [^a-zA-Z]+)|(^\w+ \w+)$" title="Введіть ім'я та призвище через пробел" required>
                 </div>
                 <div class="input__container" data-name="Дата народження">
-                    <input type="text" name="date" class="form__input" placeholder="Дата народження (dd.mm.yyyy)">
+                    <input type="text" name="date" class="form__input" placeholder="Дата народження (dd.mm.yyyy)" pattern="\d{2}[[\.-][\/ ]]\d{2}[[\.-][\/ ]][\d{2}|\d{4}]" title="Введіть дату у форматі dd.mm.yyyy" required>
                 </div>
                 <div class="input__container radiobtns__container" data-name="Стать">
                     <label for="genderMale" class="form__label"><input type="radio" name="gender" value="М" class="form__input radiobutton" id="genderMale" checked="true">М</label>
                     <label for="genderFemale" class="form__label"><input type="radio" name="gender" value="Ж" class="form__input radiobutton" id="genderFemale">Ж</label>
                 </div>
                 <div class="input__container" data-name="Місто">
-                    <select name="city" id="city" class="form__input">
+                    <select name="city" id="city" class="form__input" required>
                         <option selected>Київ</option>
                         <option>Одеса</option>
                         <option>Львів</option>
                     </select>
                 </div>
                 <div class="input__container" data-name="Адреса">
-                    <textarea name="" id="" class="form__input" data-max-length="40" data-min-length="5"></textarea>
+                    <textarea name="" id="" class="form__input" maxlength="40" minlength="5" required></textarea>
                 </div>
                 <div class="input__container checkboxes__container" data-name="Мова">
-                    <label for="ua" class="form__label"><input type="checkbox" class="form__input checkbox" value="Українська" id="ua">Українська</label>
-                    <label for="en" class="form__label"><input type="checkbox" class="form__input checkbox" value="Англійська" id="en">Англійська</label>
+                    <label for="ua" class="form__label"><input type="checkbox" name="lang" class="form__input checkbox" value="Українська" id="ua">Українська</label>
+                    <label for="en" class="form__label"><input type="checkbox" name="lang" class="form__input checkbox" value="Англійська" id="en">Англійська</label>
                 </div>
                 <div class="button__container">
                     <button type="submit" class="form__button button">Submit</button>
