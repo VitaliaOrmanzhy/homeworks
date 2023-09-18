@@ -31,7 +31,27 @@ productsContainer.addEventListener('click', function(e) {
     const productInfoBtn = document.querySelector(`.${buyBtn.getClassName()}`);
 
     productInfoBtn.addEventListener('click', () => {
-        buyBtn.buy(idOfChoosenProduct);
-        window.location.href = 'http://127.0.0.1:5500/homeworks/dz28';
+
+        form.renderForm();
+
+        document.getElementById('city').onchange = function() {
+            const value = this.value;
+            const postOfficeInput = document.getElementById('postOffice');
+            
+            form.removeOptions(postOfficeInput);
+            form.addOptions(postOfficeInput, postOffices[value]);
+        }
+
+        const formHTML = document.forms[0];
+        formHTML.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (Validate.validate(this)) {
+                Validate.removeError(this);
+                form.data = new FormData(formHTML);
+                this.submit();
+            };
+            
+        }, {once : true});
     })
 })
