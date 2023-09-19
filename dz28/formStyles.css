@@ -2,11 +2,31 @@
     margin-bottom: 20px;
 }
 
+input::placeholder, textarea::placeholder, select, label {
+    color: #aca49c;
+    font-size: 16px;
+}
+
+input {
+    color: #746d66;
+}
+
+input:hover::placeholder {
+    color: #fefefe;
+}
+
+input:hover, textarea:hover, select:hover {
+    color: #fefefe;
+    background: #b3aca7;
+    transition: all 0.3s ease-in-out;
+}
+
 .form {
-    background-color: #f4f4f4;
+    background-color: #fbf8f7;
     color: #000;
-    border: 1px solid #000;
+    border: 1px solid #b3aca7;
     padding: 30px;
+    margin-top: 10px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 18px;
     display: flex;
@@ -15,9 +35,11 @@
 }
 
 .form__input, .form__select, .form__textarea, .form__submit {
+    background: transparent;
+    outline: none;
+    border: 1px solid #b3aca7;
     font-size: 16px;
-    border: 1px solid #000;
-    width: 280px;
+    max-width: 280px;
     padding: 10px;
 }
 
@@ -30,11 +52,21 @@
     background: #000;
 }
 
+.form__submit {
+    transition: all 0.3s ease-in-out;
+}
+
 .error {
     border: 1px solid red;
 }
 
 .error__message {
     color: red;
+    opacity: 0.8
+}
 
+@media (max-width: 536px) {
+    .form {
+        padding: 20px 10px;
+    }
 }

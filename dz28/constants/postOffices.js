@@ -2,13 +2,15 @@ const postOffices = {
     'odesa' : [
         {
             attributes: {
-                value: 1
+                value: 1,
+                name: 'postOffice'
             },
             title: 'Поштове відділення номер 32'
         },
         {
             attributes: {
-                value: 2
+                value: 2,
+                name: 'postOffice'
             },
             title: 'Поштове відділення номер 63'
         }
@@ -16,19 +18,22 @@ const postOffices = {
     'kyiv' : [
         {
             attributes: {
-                value: 3
+                value: 3,
+                name: 'postOffice'
             },
             title: 'Поштове відділення номер 48'
         },
         {
             attributes: {
-                value: 4
+                value: 4,
+                name: 'postOffice'
             },
             title: 'Поштове відділення номер 44'
         },
         {
             attributes: {
-                value: 5
+                value: 5,
+                name: 'postOffice'
             },
             title: 'Поштове відділення номер 26'
         }
@@ -36,19 +41,22 @@ const postOffices = {
     'kharkiv' : [
         {
             attributes: {
-                value: 3
+                value: 3,
+                name: 'postOffice'
             },
             title: 'Поштове відділення номер 30'
         },
         {
             attributes: {
-                value: 4
+                value: 4,
+                name: 'postOffice'
             },
             title: 'Поштове відділення номер 7'
         },
         {
             attributes: {
-                value: 5
+                value: 5,
+                name: 'postOffice'
             },
             title: 'Поштове відділення номер 68'
         }

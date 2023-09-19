@@ -10,9 +10,10 @@ class ProductInfo {
             info += `<p class="product-info__paragraph">${item}</p>`
         })
 
-        info += `<p class="product-info__price">Price: <span class="price">${product.price}<span></p>
+        info += `<p class="product-info__price">Ціна: ${product.price}</p>
         <div class="button__container"></div>`;
 
-        productInfoContainer.innerHTML = info;
+        // productInfoContainer.innerHTML = info;
+        return info;
     }
 }

@@ -6,10 +6,10 @@ class BuyBtn {
         return this.className;
     }
 
-    buy(idOfProduct) {
-        const productName = catalog.find(item => item.id == idOfProduct).name;
-        return alert(`Товар '${productName}' куплений`);
-    }
+    // buy(idOfProduct) {
+    //     const productName = catalog.find(item => item.id == idOfProduct).name;
+    //     return alert(`Товар '${productName}' куплений`);
+    // }
 
     render() {
         const html = '<button class="product-info__btn">Buy</button>';

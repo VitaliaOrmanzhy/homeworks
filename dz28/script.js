@@ -25,33 +25,32 @@ productsContainer.addEventListener('click', function(e) {
     const choosenProduct = e.target.closest('[data-id]');
     const idOfChoosenProduct = choosenProduct.closest('[data-id]').dataset.id;
 
-    productInfo.render(idOfChoosenProduct);
+    productInfoContainer.innerHTML = productInfo.render(idOfChoosenProduct);
     buyBtn.render();
 
     const productInfoBtn = document.querySelector(`.${buyBtn.getClassName()}`);
 
     productInfoBtn.addEventListener('click', () => {
+        form.render();
 
-        form.renderForm();
-
-        document.getElementById('city').onchange = function() {
-            const value = this.value;
-            const postOfficeInput = document.getElementById('postOffice');
-            
-            form.removeOptions(postOfficeInput);
-            form.addOptions(postOfficeInput, postOffices[value]);
+        document.getElementById('city').onchange = function(e) {
+            const select = document.getElementById('postOffice');
+            select.innerHTML = '';
+            SelectField.addNewOptionsInHTML(select, postOffices[this.value]);
         }
 
-        const formHTML = document.forms[0];
-        formHTML.addEventListener('submit', function(e) {
+        document.querySelector(form.getClassName()).onsubmit = function(e) {
             e.preventDefault();
-            
-            if (Validate.validate(this)) {
-                Validate.removeError(this);
-                form.data = new FormData(formHTML);
-                this.submit();
-            };
-            
-        }, {once : true});
-    })
+            Validation.removeError(this);
+
+            if (!Validation.validate(this)) {
+                Validation.createError(this);
+                return;
+            }
+
+            form.setFormData(this);
+            productInfoContainer.innerHTML = new OrderInfo(idOfChoosenProduct, form.getFormData()).render();
+
+        }
+    }, {once: true})
 })
