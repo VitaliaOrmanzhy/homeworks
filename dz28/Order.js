@@ -5,7 +5,9 @@ class Order {
         this.choosenProduct = catalog.find(elem => elem.id == this.productId);
         this.order = Object.assign(this.choosenProduct, {
             totalPayment: this.getTotalPayment(),
-            postOffice: this.getPostOfficeTitle()
+            city: this.getCity(),
+            postOffice: this.getPostOfficeTitle(),
+            comment: this.getComment()
         })
     }
 
@@ -13,13 +15,20 @@ class Order {
         return this.order;
     }
 
-    
+    getCity() {
+        return this.formData.get('city');
+    }
+
     getTotalPayment() {
         return +this.formData.get('amount') * +this.choosenProduct.price;
     }
 
     getPostOfficeTitle() {
         return postOffices[this.formData.get('city')].find(el => el.attributes.value = this.formData.get('postOffice')).title; 
+    }
+
+    getComment() {
+        return this.formData('comment');
     }
 
     renderOrderInfo() {
