@@ -1,8 +1,16 @@
-class OrderInfo {
+class Order {
     constructor(productId, formData) {
         this.productId = productId;
         this.formData = formData;
         this.choosenProduct = catalog.find(elem => elem.id == this.productId);
+        this.order = Object.assign(this.choosenProduct, {
+            totalPayment: this.getTotalPayment(),
+            postOffice: this.getPostOfficeTitle()
+        })
+    }
+
+    getOrder() {
+        return this.order;
     }
 
     
@@ -11,13 +19,10 @@ class OrderInfo {
     }
 
     getPostOfficeTitle() {
-        console.log();
         return postOffices[this.formData.get('city')].find(el => el.attributes.value = this.formData.get('postOffice')).title; 
     }
 
-    render() {
-        console.log(this.formData.get('amount'), this.formData.get('payment'));
-        
+    renderOrderInfo() {
         return `
         <div class="order-info__container">
             <table class="table">

@@ -49,7 +49,9 @@ productsContainer.addEventListener('click', function(e) {
             }
 
             form.setFormData(this);
-            productInfoContainer.innerHTML = new OrderInfo(idOfChoosenProduct, form.getFormData()).render();
+            
+            const order = new Order(idOfChoosenProduct, form.getFormData());
+            productInfoContainer.innerHTML = order.renderOrderInfo();
 
         }
     }, {once: true})

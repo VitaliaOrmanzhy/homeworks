@@ -12,7 +12,7 @@ class BuyBtn {
     // }
 
     render() {
-        const html = '<button class="product-info__btn">Buy</button>';
+        const html = '<button class="product-info__btn btn">Купити</button>';
         document.querySelector('.button__container').innerHTML += html;
         return html;
     }
