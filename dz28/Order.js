@@ -28,7 +28,7 @@ class Order {
     }
 
     getComment() {
-        return this.formData('comment');
+        return this.formData.get('comment');
     }
 
     renderOrderInfo() {
