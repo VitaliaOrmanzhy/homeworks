@@ -1,32 +1,32 @@
 const formContainer = document.querySelector('.form__container');
 const form = document.querySelector('.form');
 
-function getObjOfInputsVal(inputContainersArr) {
+const getInputNames = (form) => {
+    const set = new Set();
+    [...form.elements].map(item => {
+        if (item.dataset.name) set.add(item.dataset.name)
+    });
+    return Array.from(set);
+}
+
+const inputNames = getInputNames(form);
+
+
+function getObjOfInputsVal(formData, inputNames) {
     const obj = {};
 
-    inputContainersArr.map((item) => {
-        const inputs = item.querySelectorAll('.form__input');
+    let i = 0;
+    for (let item of formData.values()) {
+        obj[inputNames[i]] = item;
+        i++;
+    }
 
-        const inputContainerName = item.dataset.name;
-        const inputsVal = [];
-
-        for (let input of inputs) {
-            if ((input.type == 'radio' || input.type == 'checkbox') && !input.checked) {
-                continue;
-            }
-
-            inputsVal.push(input.value);
-        }
-
-        obj[inputContainerName] = inputsVal;
-    })
-
+    console.log(obj);
     return obj;
 }
 
-function createFormTable(form) {
-    const inputContainers = form.querySelectorAll('.input__container');
-    const inputsValObj = getObjOfInputsVal([...inputContainers]);
+function createFormTable(formData) {
+    const inputsValObj = getObjOfInputsVal(formData, inputNames);
 
     const table = document.createElement('table');
     table.classList.add('table');
@@ -34,7 +34,7 @@ function createFormTable(form) {
     for (let i = 0; i < 2; i++) {
         const tr = document.createElement('tr');
 
-        for (let j = 0; j < inputContainers.length; j++) {
+        for (let j = 0; j < Object.keys(inputsValObj).length; j++) {
 
             if (i == 0) {
                 const th = document.createElement('th');
@@ -57,8 +57,9 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     if (form.checkValidity()) {
+        const formData = new FormData(form);
         formContainer.innerHTML = '';
-        formContainer.append(createFormTable(form));
+        formContainer.append(createFormTable(formData));
     }
 })
 
