@@ -16,8 +16,21 @@ function getObjOfInputsVal(formData, inputNames) {
     const obj = {};
 
     let i = 0;
-    for (let item of formData.values()) {
-        obj[inputNames[i]] = item;
+    for (i; i < inputNames.length; i++) {
+        obj[inputNames[i]] = [];
+        console.log(obj);
+    }
+    i = 0;
+
+    let previousKey;
+    for (let [key, value] of formData.entries()) {
+        if (previousKey === key) {
+            obj[inputNames[i-1]].push(value);
+        } else {
+            obj[inputNames[i]].push(value);
+        }
+
+        previousKey = key;
         i++;
     }
 
