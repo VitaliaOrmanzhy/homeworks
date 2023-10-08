@@ -3,15 +3,11 @@ class ProductsList {
         this.container = container;
     }
 
-    getContainer() {
-        return this.container;
-    }
-
     render(category) {
-        let products = '';
+        let html = '';
         
         catalog.filter(item => item.category === category).map(({name, id, hash, category, img, info, price}) => {
-            products += `
+            html += `
             <li class="product" data-id="${id}">
                 <a href="#${hash}" class="product__container">
                     <div class="product__img-container">
@@ -24,8 +20,7 @@ class ProductsList {
             `
         })
 
-        let html = `<ul class="products__list">${products}</ul>`
-
-        this.getContainer().innerHTML = html;
+        this.container.innerHTML = html;
+        this.container.dataset.category = category;
     }
 }

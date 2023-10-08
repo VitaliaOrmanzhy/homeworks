@@ -1,12 +1,15 @@
-class SubmitBtn {
+class SubmitBtn extends ButtonBasic {
     constructor(classNames, textContent) {
-        this.classNames = classNames;
-        this.textContent = textContent;
+        super(classNames, textContent, null);
     }
 
     render() {
         const button = document.createElement('button');
-        button.classList.add('form__submit');
+
+        this.classNames.map(className => {
+            button.classList.add(className);
+        })
+        
         button.setAttribute('type', 'submit');
         button.textContent = this.textContent;
 

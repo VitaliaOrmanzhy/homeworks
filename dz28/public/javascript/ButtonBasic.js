@@ -1,6 +1,8 @@
-class BuyBtn extends ButtonBasic {
-    constructor(classNames, textContent) {
-        super(classNames, textContent);
+class ButtonBasic {
+    constructor(classNames, textContent, container) {
+        this.classNames = classNames;
+        this.textContent = textContent;
+        this.container = container;
     }
 
     render() {
@@ -10,7 +12,7 @@ class BuyBtn extends ButtonBasic {
         }
         
         btn.textContent = this.textContent;
-        document.querySelector('.button__container').append(btn);
+        this.container.append(btn);
 
         return btn;
     }

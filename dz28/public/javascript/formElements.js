@@ -60,8 +60,8 @@ const form = new Form(productInfoContainer, ['form'], [
                 }
         }]).render(),
     
-    new InputField(['form__radio'], {name: 'payment', type: 'radio', value:'cash'}, 'Післяплата').render(),
-    new InputField(['form__radio'], {name: 'payment', type: 'radio', value:'card', checked: ''}, 'Оплата картою').render(),
+    new InputField(['form__radio'], {name: 'payment', type: 'radio', value:'1'}, 'Післяплата').render(),
+    new InputField(['form__radio'], {name: 'payment', type: 'radio', value:'2', checked: ''}, 'Оплата картою').render(),
     new InputField(['form__input'], {name: 'amount', type: 'number', value:1, max:50, min:1, placeholder:'Кількість одиниць'}).render(),
     new InputField(['form__textarea'], {name: 'comment', maxLength: 100, placeholder:'Коментар до замовлення'}).render()
 ],

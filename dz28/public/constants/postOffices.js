@@ -5,14 +5,14 @@ const postOffices = {
                 value: 1,
                 name: 'postOffice'
             },
-            title: 'Поштове відділення номер 32'
+            title: 'Поштове відділення номер 32',
         },
         {
             attributes: {
                 value: 2,
                 name: 'postOffice'
             },
-            title: 'Поштове відділення номер 63'
+            title: 'Поштове відділення номер 63',
         }
     ],
     'kyiv' : [
@@ -21,21 +21,21 @@ const postOffices = {
                 value: 3,
                 name: 'postOffice'
             },
-            title: 'Поштове відділення номер 48'
+            title: 'Поштове відділення номер 48',
         },
         {
             attributes: {
                 value: 4,
                 name: 'postOffice'
             },
-            title: 'Поштове відділення номер 44'
+            title: 'Поштове відділення номер 44',
         },
         {
             attributes: {
                 value: 5,
                 name: 'postOffice'
             },
-            title: 'Поштове відділення номер 26'
+            title: 'Поштове відділення номер 26',
         }
     ],
     'kharkiv' : [
@@ -44,21 +44,21 @@ const postOffices = {
                 value: 3,
                 name: 'postOffice'
             },
-            title: 'Поштове відділення номер 30'
+            title: 'Поштове відділення номер 30',
         },
         {
             attributes: {
                 value: 4,
                 name: 'postOffice'
             },
-            title: 'Поштове відділення номер 7'
+            title: 'Поштове відділення номер 7',
         },
         {
             attributes: {
                 value: 5,
                 name: 'postOffice'
             },
-            title: 'Поштове відділення номер 68'
+            title: 'Поштове відділення номер 68',
         }
     ]
 }

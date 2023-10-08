@@ -3,13 +3,12 @@ class Categories {
         this.container = container;
     }
 
-    getContainer() {
-        return this.container;
-    }
-
     render() {
+        let html = '';
         categories.map(({title, categoryName, hash}) => {
-            this.getContainer().innerHTML += `<a class="category__item" href="#${hash}" data-name="${categoryName}">${title}</a>`
+            html += `<li class="category__item" data-name="${categoryName}"><a href="#" data-name="${categoryName}">${title}</a></li>`
         })
+
+        this.container.innerHTML = html;
     }
 }
