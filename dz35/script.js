@@ -1,21 +1,22 @@
 const weatherURL = 'http://api.openweathermap.org/data/2.5/weather?q=LVIV&units=metric&APPID=5d066958a60d315387d9492393935c19';
 
-function createInputContainer() {
-    const inputContainer = document.createElement('div');
-    inputContainer.classList.add('input-container');
+function createForm() {
+    const formContainer = document.createElement('div');
+    formContainer.classList.add('form-container');
 
-    const input = document.createElement('input');
-    input.classList.add('weather__input');
-    input.setAttribute('placeholder', 'Type the city name');
+    const form = `
+    <form>
+        <div class="input-container">
+            <input type="text" class="weather__input" placeholder="Type the city name"/>
+            <button type="submit" class="weather__button">Confirm</button>
+        </div>
+        <p class="error">This city does not exist.</p>
+    </form>
+    `
 
-    const button = document.createElement('button');
-    button.classList.add('weather__button');
-    button.textContent = 'Confirm';
+    formContainer.innerHTML = form;
 
-    inputContainer.append(input);
-    inputContainer.append(button);
-
-    return inputContainer;
+    return formContainer;
 }
 
 async function getWeatherData(city) {
@@ -81,13 +82,11 @@ function renderWeather(data) {
 }
 
 function throwError() {
-    const errorMessage = document.createElement('p');
-    errorMessage.textContent = 'This city doesn\'t exist.';
-    errorContainer.append(errorMessage);
+    document.querySelector('.error').classList.add('opacity');
 }
 
 function removeError() {
-    errorContainer.innerHTML = '';
+    document.querySelector('.error').classList.remove('opacity');
 }
 
 const errorContainer = document.querySelector('.error-container');
@@ -163,14 +162,13 @@ function showDetails(item) {
     }
 }
 
-const inputContainer = createInputContainer();
-searchContainer.append(inputContainer);
+const form = createForm();
+searchContainer.append(form);
 
-inputContainer.onclick = (e) => {
-    if (e.target.tagName === 'BUTTON') {
-        const inputVal = document.querySelector('.weather__input').value;
-        getWeatherData(inputVal);
-    }
+form.onsubmit = (e) => {
+    e.preventDefault();
+    const inputVal = document.querySelector('.weather__input').value;
+    getWeatherData(inputVal);
 }
 
 getWeatherData('Lviv');
