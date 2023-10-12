@@ -1,8 +1,8 @@
-function pow(x, n) {
-    if (n == 1) {
-      return x;
+function pow(num, degree) {
+    if (degree == 1) {
+      return num;
     } else {
-      return x * pow(x, n - 1);
+      return num * pow(num, degree - 1);
     }
 }
 
