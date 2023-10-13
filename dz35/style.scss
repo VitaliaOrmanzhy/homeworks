@@ -11,6 +11,7 @@ body {
 }
 
 .container {
+    margin: 0 auto;
     max-width: 1000px;
     padding: 0 20px;
 }
@@ -35,10 +36,15 @@ body {
 }
 
 .weather {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+
+    .container {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
 
     .header {
         text-align: center;
@@ -63,10 +69,6 @@ body {
     &__button:hover {
         color: #fff;
         background: #000;
-    }
-
-    &__container {
-        align-self: center;
     }
 
     &__items {
