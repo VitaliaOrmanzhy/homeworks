@@ -45,7 +45,7 @@ function getPost(id) {
                     const commentsUl = document.querySelector('.post__comments');
 
                     filteredComments.map(el => {
-                        const comment = document.createElement('div');
+                        const comment = document.createElement('li');
                         comment.classList.add('comment');
                         comment.innerHTML = `
                         <p class="comment__user">${el.email}</p>
