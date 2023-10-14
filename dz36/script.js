@@ -32,12 +32,18 @@ function getPost(id) {
             postContainer.append(div);
             return data;
         })
-        .catch(error => console.log(error));
+        .catch(error => console.error(error));
         
         promise.then(data => {
 
             fetch(`https://jsonplaceholder.typicode.com/comments`)
-                .then(response => response.json())
+                .then(response => {
+                    if (response.ok) {
+                        return response.json()
+                    }
+
+                    throw new Error( {status: response.status, statusText: response.statusText})
+                })
                 .then(comments => {
                     //комментарии поста
                     const filteredComments = comments.filter(el => el.postId === data.id);
@@ -54,12 +60,12 @@ function getPost(id) {
                         commentsUl.append(comment);
                     }) 
                 })
+                .catch(error => console.error(error));
         })
+        return promise;
     }
 
     previousId = id;
-
-    return promise;
 }
 
 document.querySelector('.post-container').addEventListener('click', (e) => {
