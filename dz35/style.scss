@@ -53,6 +53,7 @@ body {
     &__search {
         display: flex;
         flex-direction: column-reverse;
+        align-items: center;
     }
 
     &__input, &__button {

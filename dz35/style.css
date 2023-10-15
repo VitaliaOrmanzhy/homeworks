@@ -48,6 +48,7 @@ body {
 .weather__search {
   display: flex;
   flex-direction: column-reverse;
+  align-items: center;
 }
 .weather__input, .weather__button {
   padding: 10px;
