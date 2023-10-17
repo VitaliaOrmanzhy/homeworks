@@ -1,6 +1,12 @@
 const postContainer = document.querySelector('.post-container');
 
+
 let previousId = '';
+
+function getInputValue() {
+    const formData = new FormData(document.querySelector('.form'));
+    return formData.get('id');
+}
 
 function getPost(id) {
     if (id != previousId) {
@@ -10,7 +16,7 @@ function getPost(id) {
                     if (response.ok) {
                         resolve(response.json())
                     } else {
-                        reject(error);
+                        reject(response);
                     }
                 })
         })
@@ -32,25 +38,29 @@ function getPost(id) {
             postContainer.append(div);
             return data;
         })
-        .catch(error => console.error(error));
-        
-        promise.then(data => {
+        .catch(error => {   
+            console.log(error);
+        });
+    }
 
-            fetch(`https://jsonplaceholder.typicode.com/comments`)
+    previousId = id;
+}
+
+function getComments(postId) {
+    fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
                 .then(response => {
                     if (response.ok) {
+                        console.log(response)
                         return response.json()
                     }
 
                     throw new Error( {status: response.status, statusText: response.statusText})
                 })
-                .then(comments => {
-                    //комментарии поста
-                    const filteredComments = comments.filter(el => el.postId === data.id);
-
+                .then(data => {
+                    console.log(data);
                     const commentsUl = document.querySelector('.post__comments');
 
-                    filteredComments.map(el => {
+                    data.map(el => {
                         const comment = document.createElement('li');
                         comment.classList.add('comment');
                         comment.innerHTML = `
@@ -61,16 +71,15 @@ function getPost(id) {
                     }) 
                 })
                 .catch(error => console.error(error));
-        })
-        return promise;
-    }
-
-    previousId = id;
 }
 
 document.querySelector('.post-container').addEventListener('click', (e) => {
     const elem = e.target;
+    const commentsUl = document.querySelector('.post__comments');
+
     if (elem.classList.contains('show-comments_btn')) {
+        commentsUl.innerHTML == '' ? getComments(getInputValue()) : null;
+
         elem.classList.toggle('active');
 
         if (elem.classList.contains('active')) {
@@ -79,13 +88,13 @@ document.querySelector('.post-container').addEventListener('click', (e) => {
             elem.textContent = 'Show comments';
         }
 
-        document.querySelector('.post__comments').classList.toggle('open');
+        commentsUl.classList.toggle('open');
     }
 })
 
 document.querySelector('.form').addEventListener('submit', (e) => {
     e.preventDefault();
-    const inputVal = document.querySelector('.form__input').value;
 
+    const inputVal = getInputValue();
     getPost(inputVal);
 })
